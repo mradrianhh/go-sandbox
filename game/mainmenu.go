@@ -1,4 +1,4 @@
-package setup
+package game
 
 import "fmt"
 
@@ -14,13 +14,13 @@ func ShowMainMenu() {
 		if _, err := fmt.Scan(&numResponse); err == nil {
 			switch numResponse {
 			case 1:
-				goto choosecharacter
+				ShowChooseCharacterMenu()
 			case 2:
-				goto viewcharacter
+				ViewCharacter()
 			case 3:
-				goto createcharacter
+				ShowCreateCharacterMenu()
 			case 4:
-				goto end
+				ExitGame()
 			default:
 				fmt.Println("Sorry, I don't understand. Please try again.")
 			}

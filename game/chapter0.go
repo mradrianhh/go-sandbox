@@ -1,17 +1,19 @@
-package story
+package game
 
-import "fmt"
+import (
+	"fmt"
 
-var numResponse int
-var charResponse string
+	"github.com/mradrianhh/go-sandbox/models"
+)
 
 // StartChapter0 starts the first chapter.
-func StartChapter0() {
+func StartChapter0(player *models.Player) {
 
 	for {
+		fmt.Print("\n----------------------------------------------------------\n")
 		fmt.Print("\nChapter 0\n")
 		fmt.Print("\nThere was once a time where the world was good.\n")
-		fmt.Print("Can you remember it, son?(Y/N)")
+		fmt.Printf("Can you remember it, %s?(Y/N)", player.Name)
 		if _, err := fmt.Scan(&charResponse); err == nil {
 			switch charResponse {
 			case "y", "Y":
@@ -31,13 +33,13 @@ func StartChapter0() {
 		if _, err := fmt.Scan(&numResponse); err == nil {
 			switch numResponse {
 			case 1:
-				goto chapter1
+				StartChapter1(player)
 			case 2:
-				goto chapter0
+				StartChapter0(player)
 			case 3:
-				goto mainmenu
+				ShowMainMenu()
 			default:
-				goto chapter1
+				StartChapter1(player)
 			}
 		}
 	}

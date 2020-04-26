@@ -1,4 +1,4 @@
-package setup
+package game
 
 import "fmt"
 
@@ -10,10 +10,9 @@ func ShowOpening() {
 			switch charResponse {
 			case "y", "Y":
 				fmt.Println("Wonderful! Let's begin then.")
-				goto mainmenu
+				ShowMainMenu()
 			case "n", "N":
 				fmt.Println("Hmmm... Fine then.")
-				goto end
 			}
 		}
 	}
